@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender 🎬</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Recommendation Engine</h1>
+        <p>Search for a movie or use filters to find something you like!</p>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for any movie...">
+            <button id="search-btn">Search</button>
+        </div>
+        
+        <div class="filter-controls">
+            <select id="year-filter" class="filter-select">
+                <option value="">Any Year</option>
+            </select>
+            <select id="rating-filter" class="filter-select">
+                <option value="">Any Rating</option>
+            </select>
+        </div>
+
+        <div class="filter-container" id="filter-container">
+            </div>
+
+        <div id="results-container">
+            <h2 id="results-title">Search results will appear here</h2>
+            <div id="loader" class="loader hidden"></div>
+            <div id="movie-grid" class="movie-grid">
+                </div>
+        </div>
+    </main>
+    
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="movie-modal" class="modal">
+            <span class="close-btn">&times;</span>
+            <div class="modal-content">
+                <img id="modal-poster" src="" alt="Movie Poster">
+                <div class="modal-details">
+                    <h2 id="modal-title"></h2>
+                    <p class="rating"><strong>Rating:</strong> <span id="modal-rating"></span>⭐</p>
+                    <h3>Plot</h3>
+                    <p id="modal-plot"></p>
+                    <p><strong>Cast:</strong> <span id="modal-cast"></span></p>
+                    <p><strong>Director:</strong> <span id="modal-director"></span></p>
+                    <button id="modal-recommend-btn">Recommend Similar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by Gemini & The Movie Database (TMDB)</p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

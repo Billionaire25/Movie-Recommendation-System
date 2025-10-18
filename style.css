@@ -1,0 +1,198 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 { margin: 0; font-size: 2.5rem; }
+
+main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#search-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover { background-color: #2980b9; }
+
+/* ... (all previous styles are the same) ... */
+
+/* NEW: Container for the new dropdowns */
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* NEW: Styling for the dropdowns */
+.filter-select {
+    padding: 0.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding-top: 1rem; /* Add some space from the dropdowns */
+    border-top: 1px solid #ddd;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#results-container h2 { text-align: center; margin-bottom: 2rem; color: var(--primary-color); }
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.movie-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); }
+
+.movie-card img { width: 100%; height: auto; display: block; }
+
+.movie-card h3 { font-size: 0.9rem; padding: 0.75rem; margin: 0; min-height: 50px; display: flex; align-items: center; justify-content: center; text-align: center; }
+
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.modal-content {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.modal-content img {
+    max-width: 250px;
+    border-radius: 8px;
+}
+
+.modal-details h2 { margin-top: 0; }
+.modal-details .rating { font-size: 1.2rem; color: #f39c12; }
+
+#modal-recommend-btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#modal-recommend-btn:hover { background-color: #229954; }
+
+.loader { border: 5px solid #f3f3f3; border-top: 5px solid var(--secondary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 2rem auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.hidden { display: none; }
+
+footer { text-align: center; padding: 1.5rem; margin-top: 2rem; background-color: #34495e; color: #ecf0f1; }
+
+@media (max-width: 768px) {
+    .modal-content { flex-direction: column; align-items: center; text-align: center; }
+}
